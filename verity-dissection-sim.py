@@ -67,7 +67,11 @@ def swapShapes(command, leftStatue, middleStatue, rightStatue):
     commands = command.split()
     
     if len(commands) < 5:
-        print(f"Not enough arguments")
+        print("Not enough arguments")
+        return leftStatue, middleStatue, rightStatue
+    
+    if commands[0] == commands[3] and commands[2] == commands[5]:
+        print("Same command entered twice")
         return leftStatue, middleStatue, rightStatue
     
     shape1, dest1, shape2, dest2 = commands[0].upper(), commands[2].upper(), commands[3].upper(), commands[5].upper()
@@ -134,7 +138,7 @@ def main():
         print(f"Right Statue: {rightCombination}\n")
         
         if checkWinCondition(callout, leftStatue, middleStatue, rightStatue):
-            print("Dissection completed")
+            print("Dissection completed\n")
             break
     
     if not timer_thread.is_alive():
